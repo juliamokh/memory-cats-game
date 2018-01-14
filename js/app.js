@@ -60,7 +60,7 @@ let openedCards = [];
 let hiddenCards = 0;
 
 document.addEventListener("click", function(event) {
-    if (event.target.className === 'card') {
+    if (event.target.className === 'card' && openedCards.length < 2) {
         openCard(event.target);
     }
 })
@@ -69,7 +69,7 @@ function openCard(card) {
         card.classList.add('open');
         openedCards.push(card);
         if (openedCards.length === 2) {
-            checkMatch();
+            setTimeout(checkMatch, 1000);
         }
     }
 
